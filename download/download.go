@@ -6,12 +6,12 @@ import (
 )
 
 // Download
-func Run() {
+func Run(options Options) {
 
 	// Set the commands.
 	download := "curl -OL http://wordpress.org/latest.tar.gz && "
 	unzip := "tar xzf latest.tar.gz && "
-	relocate := "mv wordpress/* . && "
+	relocate := "mv wordpress/* "+ options.Destination +" && "
 	cleanup := "rm -rf latest.tar.gz wordpress;"
 
 	// Concatenate the command.

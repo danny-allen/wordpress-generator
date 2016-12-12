@@ -7,6 +7,8 @@ import (
 	"fmt"
 )
 
+const DESTINATION = ".tmp";
+
 // First contact.
 func main() {
 
@@ -31,8 +33,13 @@ func tryCommand() {
 	// CMD: wordpress download
 	case "download":
 
+		// Set download options.
+		downloadOptions := download.Options {
+			Destination: DESTINATION,
+		}
+
 		//Run download, accept no flags.
-		download.Run()
+		download.Run(downloadOptions)
 		break
 
 	// CMD: wordpress create
